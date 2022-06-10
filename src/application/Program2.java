@@ -1,5 +1,6 @@
 package application;
 
+import java.util.List;
 import java.util.Scanner;
 
 import model.dao.DaoFactory;
@@ -21,17 +22,22 @@ public class Program2 {
 		departmentDao.deleteById(5);
 		System.out.println("Delete completed!");
 		
-		System.out.println("\n=== Teste 3: Department inserrt ===");
+		System.out.println("\n=== Teste 3: Department insert ===");
 		Department dep = new Department(null,"Music");
 		departmentDao.insert(dep);
 		System.out.println("Inserted New id: " + dep.getId());
 		
-		System.out.println("\n=== TEST 4: update =======");
+		System.out.println("\n=== TEST 4: Department update =======");
 		Department dep2 = departmentDao.findById(1);
 		dep2.setName("Food");
 		departmentDao.update(dep2);
 		System.out.println("Update completed");
 		
+		System.out.println("\n=== TEST 4: Department findAll =======");
+		List<Department> list = departmentDao.findAll();
+		for(Department d : list) {
+			System.out.println(d);
+		}
 		
 		sc.close();
 	}
