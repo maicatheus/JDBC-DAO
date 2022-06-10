@@ -13,12 +13,18 @@ public class Program2 {
 		
 		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
 		
-		System.out.println("=== Teste 1: deparrtment findById ===");
+		System.out.println("=== Teste 1: Department findById ===");
 		Department department = departmentDao.findById(3);
 		System.out.println(department);
 		
+		System.out.println("\n\n=== Teste 2: Department deleteById ===");
+		departmentDao.deleteById(5);
+		System.out.println("Delete completed!");
 		
-		
+		System.out.println("\n\n=== Teste 3: Department inserrt ===");
+		Department dep = new Department(null,"Music");
+		departmentDao.insert(dep);
+		System.out.println("Inserted New id: " + dep.getId());
 		
 		sc.close();
 	}
